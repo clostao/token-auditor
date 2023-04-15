@@ -2,23 +2,9 @@ import { ethers, getBigInt, id, Log, toBigInt } from "ethers";
 import { blockExplorerApiBaseURLByBlockchain } from "../Config/Blockchain";
 import { Blockchain } from "../Types/Blockchain";
 import { providerFactory } from "../Utils/ConnectorFactory";
+import { getTransferLogs } from "./GetTransferLogs";
+
 const fetch = require("node-fetch");
-
-const TRANSFER_TOPIC = id("Transfer(address,address,uint256)");
-
-const getTransferLogs = async (blockchain: Blockchain, lp: string) => {
-  const apiBasePath = blockExplorerApiBaseURLByBlockchain[blockchain];
-
-  const block = await providerFactory(blockchain).getBlockNumber();
-
-  return fetch(
-    `${apiBasePath}?module=logs&action=getLogs&topic0=${TRANSFER_TOPIC}&address=${lp}&apikey=${
-      process.env[Blockchain + "_APIKEY"]
-    }`
-  )
-    .then((response: Response) => response.json())
-    .then((object: any) => object.result);
-};
 
 export const getLiquiditySuppliers = async (
   blockchain: Blockchain,
