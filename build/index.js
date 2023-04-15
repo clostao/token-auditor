@@ -23,6 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+require("dotenv/config");
 const process_1 = __importStar(require("process"));
 const ethers_1 = require("ethers");
 const Auditor_1 = require("./Auditor");
@@ -40,5 +41,5 @@ if (ethers_1.ethers.isAddress(lpAddress) == false) {
     console.error("Liquidity pool address is bad formatted");
     (0, process_1.exit)(0);
 }
-(0, Auditor_1.auditLiquidityPool)({}, Blockchain_1.Blockchain.Ethereum, tokenAddress, lpAddress).then((passed) => console.log(passed));
+(0, Auditor_1.auditLiquidityPool)({ minimumSuppliers: 0 }, Blockchain_1.Blockchain.Ethereum, tokenAddress, lpAddress).then((passed) => console.log(passed));
 //# sourceMappingURL=index.js.map

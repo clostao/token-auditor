@@ -8,8 +8,8 @@
   "private": false,
   "scripts": {
     "build": "tsc",
-    "run:hot": "ts-node src/",
-    "run:build": "node build/"
+    "auditor:hot": "ts-node src/",
+    "auditor": "node build/"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
