@@ -36,6 +36,6 @@ export const getLiquiditySuppliers = async (
     }, {} as Record<string, bigint>);
 
   return Object.entries(map)
-    .filter(([account, balance]) => balance > 0)
-    .map(([account, balance]) => account);
+    .filter(([_account, balance]) => balance > 0)
+    .map(([account, _balance]) => account);
 };
