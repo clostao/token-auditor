@@ -1,10 +1,6 @@
-import { ethers, getBigInt, id, Log, toBigInt } from "ethers";
-import { blockExplorerApiBaseURLByBlockchain } from "../Config/Blockchain";
+import { ethers, Log, toBigInt } from "ethers";
 import { Blockchain } from "../Types/Blockchain";
-import { providerFactory } from "../Utils/ConnectorFactory";
 import { getTransferLogs } from "./GetTransferLogs";
-
-const fetch = require("node-fetch");
 
 export const getLiquiditySuppliers = async (
   blockchain: Blockchain,
