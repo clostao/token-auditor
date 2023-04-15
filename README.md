@@ -25,5 +25,5 @@ yarn build
 Once the package has been built run the following command:
 
 ```bash
-yarn run auditor
+yarn run auditor ${tokenAddress} ${lpTokenAddress}
 ```
